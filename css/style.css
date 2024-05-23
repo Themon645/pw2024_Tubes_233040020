@@ -1,0 +1,76 @@
+.warna1 {
+  background-color: #1E1F26;
+
+}
+
+.warna2 {
+  background-color: #283655;
+
+}
+
+.warna3 {
+  background-color:#4D648D;
+
+}
+
+.warna4 {
+  background-color: #D0E1F9;
+
+}
+
+.banner{
+  height: 80vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/banner.jpg');
+  background-size: cover;
+}
+
+.highlighted-kategori{
+  height: 250px;
+}
+
+.kategori-Laptop{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/laptop.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.kategori-Xbox{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/xbox.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.kategori-Handphone{
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/handphone.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.no-decoration{
+  text-decoration: none;
+  color: white;
+}
+
+.no-decoration:hover{
+  color: #4D648D;
+}
+
+.text-harga{
+  font-size: 22px;
+  color:  #283655;
+}
+
+.image-box{
+  height: 250px;
+}
+
+.image-box img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content-suscribe{
+  background-color:rgba(0,0,0,0.7) ;
+}
