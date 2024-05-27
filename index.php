@@ -11,7 +11,7 @@ $queryProduk = mysqli_query($con, "SELECT id, nama, harga, foto, detail  FROM pr
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TElektroShop | Home</title>
+  <title>ElektroShop | Home</title>
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="./fontawesome/css/all.min.css">
   <link rel="stylesheet" href="./css/style.css">
@@ -99,6 +99,7 @@ $queryProduk = mysqli_query($con, "SELECT id, nama, harga, foto, detail  FROM pr
           </div>
         <?php } ?>
       </div>
+      <a class="btn btn-outline-warning mt-3 p-2 fs-4" href="produk.php">See More</a>
     </div>
   </div>
 

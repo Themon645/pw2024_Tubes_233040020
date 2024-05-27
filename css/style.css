@@ -74,3 +74,22 @@
 .content-suscribe{
   background-color:rgba(0,0,0,0.7) ;
 }
+
+.content-suscribe a{
+  color: white;
+}
+
+.banner2{
+  height: 50vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/banner.jpg');
+  background-size: cover;
+  background-position: 50% 20%;
+}
+
+.produk-terkait-img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+
+}

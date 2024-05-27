@@ -1,5 +1,3 @@
-
-
 <?php
 
 session_start();
@@ -55,25 +53,25 @@ require "../koneksi.php";
         $query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
         $countdata = mysqli_num_rows($query);
         $data = mysqli_fetch_array($query);
-        echo $data['USERNAME'];
         echo $data['PASSWORD'];
+
         
         if($countdata>0){
-          if(password_verify($password, $data['PASSWORD'])) {
-              echo "benar";
+          if(password_verify('$password', $data['PASSWORD'])){
+            echo "berhasil";
           }
           else{
             ?>
             <div class="alert alert-danger" role="alert">
-              password salah
+            password salah
             </div>
             <?php
           }
         }
         else{
           ?>
-          <div class="alert alert-danger" role="alert">
-            akun tidak terdaftar
+          <div class="alert alert-warning" role="alert">
+          akun tidak terdaftar
           </div>
           <?php
         }

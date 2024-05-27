@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item me-4">
-        <a class="nav-link" href="../adminpanel">Home</a>
+        <a class="nav-link" href="./index.php">Home</a>
       </li>
         <li class="nav-item me-4">
-          <a class="nav-link" href="kategori.php">Kategori</a>
+          <a class="nav-link" href="tentang-kami.php">Tentang kami</a>
         </li>
         <li class="nav-item me-4">
           <a class="nav-link" href="produk.php">Produk</a>
