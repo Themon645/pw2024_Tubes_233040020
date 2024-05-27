@@ -1,5 +1,5 @@
 <?php
-//require "session.php";
+require "../adminpanel/session.php";
 require "../koneksi.php";
 
 $queryproduk = mysqli_query($con, "SELECT a.*, b.nama AS nama_kategori FROM produk a JOIN kategori b ON a.kategori_id = b.id");

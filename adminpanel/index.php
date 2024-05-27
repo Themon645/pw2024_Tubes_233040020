@@ -1,5 +1,5 @@
 <?php
-//require "session.php";
+require "session.php";
 require "../koneksi.php";
 
 $queryKategori = mysqli_query($con,"SELECT * FROM kategori" );

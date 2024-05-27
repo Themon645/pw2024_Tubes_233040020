@@ -1,5 +1,5 @@
 <?php
-//require "session.php";
+require "../adminpanel/session.php";
 require "../koneksi.php";
 
 $id = $_GET['id'];

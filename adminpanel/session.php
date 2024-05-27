@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    if($_SESSION['LOGIN']==false){
+    if($_SESSION['login']==false){
         header("Location: login.php");
     }
 ?>

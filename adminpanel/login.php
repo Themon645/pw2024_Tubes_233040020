@@ -1,7 +1,11 @@
 <?php
-
 session_start();
 require "../koneksi.php";
+
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -33,11 +37,11 @@ require "../koneksi.php";
       <form action="" method="post">
         <div>
           <label for="username">Username</label>
-          <input type="text" class="form-control" name="username" id="username">
+          <input type="text" class="form-control" name="username" id="username" required>
         </div>
         <div>
-          <label for="password">password</label>
-          <input type="password" class="form-control" name="password" id="password">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" required>
         </div>
         <div>
           <button class="btn btn-success form-control mt-3" type="submit" name="loginbtn">Login</button>
@@ -47,40 +51,36 @@ require "../koneksi.php";
     <div class="mt-3" style="width: 500px">
       <?php
       if (isset($_POST['loginbtn'])) {
-        $username = htmlspecialchars ($_POST['username']);
-        $password = htmlspecialchars ($_POST['password']);
+        $username = htmlspecialchars($_POST['username']);
+        $password = htmlspecialchars($_POST['password']);
 
-        $query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
-        $countdata = mysqli_num_rows($query);
-        $data = mysqli_fetch_array($query);
-        echo $data['PASSWORD'];
+        // Use prepared statements to prevent SQL injection
+        $stmt = $con->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $countdata = $result->num_rows;
+        $data = $result->fetch_assoc();
 
-        
-        if($countdata>0){
-          if(password_verify('$password', $data['PASSWORD'])){
-            echo "berhasil";
+        if ($countdata > 0) {
+          if (password_verify($password, $data['PASSWORD'])) { 
+            $_SESSION['username'] = $data['USERNAME'];
+            $_SESSION['login'] = true;
+            header('Location: ../adminpanel/');
+            exit; // Stop further script execution
+          } else {
+            echo '<div class="alert alert-danger" role="alert">Password salah</div>';
           }
-          else{
-            ?>
-            <div class="alert alert-danger" role="alert">
-            password salah
-            </div>
-            <?php
-          }
+        } else {
+          echo '<div class="alert alert-warning" role="alert">Akun tidak terdaftar</div>';
         }
-        else{
-          ?>
-          <div class="alert alert-warning" role="alert">
-          akun tidak terdaftar
-          </div>
-          <?php
-        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $con->close();
       }
       ?>
     </div>
   </div>
-
-
 </body>
-
 </html>
