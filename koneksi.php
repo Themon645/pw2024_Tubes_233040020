@@ -1,10 +1,14 @@
 <?php
-  $con = mysqli_connect("localhost","root","","toko_online");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "toko_online";
 
-  // check connection
-  if (mysqli_connect_errno()) {
-    echo "failed to connect to  MySQL: " . mysqli_connect_error();
-    exit();
-  }
+// Create connection
+$con = mysqli_connect($servername, $username, $password, $dbname);
 
+// Check connection
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 ?>

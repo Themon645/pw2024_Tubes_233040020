@@ -2,7 +2,6 @@
 session_start();
 require "../koneksi.php";
 
-// Enable error reporting
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -46,6 +45,9 @@ error_reporting(E_ALL);
         <div>
           <button class="btn btn-success form-control mt-3" type="submit" name="loginbtn">Login</button>
         </div>
+        <div class="mt-3">
+          <h6>Registrasi akun <a href="registrasi.php">Registrasi</a></h6> 
+        </div>
       </form>
     </div>
     <div class="mt-3" style="width: 500px">
@@ -54,7 +56,6 @@ error_reporting(E_ALL);
         $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
 
-        // Use prepared statements to prevent SQL injection
         $stmt = $con->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -67,7 +68,7 @@ error_reporting(E_ALL);
             $_SESSION['username'] = $data['USERNAME'];
             $_SESSION['login'] = true;
             header('Location: ../adminpanel/');
-            exit; // Stop further script execution
+            exit;
           } else {
             echo '<div class="alert alert-danger" role="alert">Password salah</div>';
           }
@@ -75,7 +76,6 @@ error_reporting(E_ALL);
           echo '<div class="alert alert-warning" role="alert">Akun tidak terdaftar</div>';
         }
 
-        // Close the statement and connection
         $stmt->close();
         $con->close();
       }
