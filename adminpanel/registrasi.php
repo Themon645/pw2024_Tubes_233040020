@@ -20,7 +20,6 @@ require "../koneksi.php";
 
   .login-box {
     width: 500px;
-    height: 300px;
     box-sizing: border-box;
     border-radius: 10px;
   }
@@ -30,23 +29,24 @@ require "../koneksi.php";
   <div class="main d-flex flex-column justify-content-center align-items-center">
     <div class="login-box p-5 shadow">
       <form action="" method="post">
-        <ul>
-          <div>
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" id="username" required>
-          </div>
-          <div>
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password" required>
-          </div>
-          <div>
-            <label for="password2">Konfirmasi Password</label>
-            <input type="password" class="form-control" name="password2" id="password2" required>
-          </div>
-          <div>
-            <button type="submit" class="btn btn-success form-control mt-3" name="regisbtn">Registrasi</button>
-          </div>
-        </ul>
+        <div>
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" id="username" required>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" required>
+        </div>
+        <div>
+          <label for="password2">Konfirmasi Password</label>
+          <input type="password" class="form-control" name="password2" id="password2" required>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success form-control mt-3" name="regisbtn">Registrasi</button>
+        </div>
+        <div class="mt-3">
+          <h6>Login Akun <a href="login.php">login</a></h6>
+        </div>
       </form>
     </div>
 
@@ -62,7 +62,7 @@ require "../koneksi.php";
         }
 
         // Check username sudah terdaftar atau belum
-        $result = mysqli_query($con, "SELECT username FROM user WHERE username = '$username'");
+        $result = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
         if (mysqli_fetch_assoc($result)) {
           echo '<div class="alert alert-warning" role="alert">Username sudah terdaftar</div>';
         } else if ($password !== $password2) {
@@ -72,7 +72,7 @@ require "../koneksi.php";
           $password = password_hash($password, PASSWORD_DEFAULT);
 
           // menambah username baru ke database
-          $query = "INSERT INTO user (username, password) VALUES ('$username', '$password')";
+          $query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
           if (mysqli_query($con, $query)) {
             echo '<div class="alert alert-success" role="alert">Registrasi berhasil</div>';
           } else {

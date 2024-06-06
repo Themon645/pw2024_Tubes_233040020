@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "toko_online";
+$dbname = "pw2024_tubes_233040020";
 
 // Create connection
 $con = mysqli_connect($servername, $username, $password, $dbname);
