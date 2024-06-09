@@ -93,3 +93,8 @@
   object-position: center;
 
 }
+
+.btn:hover {
+  opacity: 0.9 !important;
+  background-color: #4D648D !important;
+}

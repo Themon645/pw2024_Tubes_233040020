@@ -4,16 +4,16 @@
     <h5 class="text-center mb-4">Temui Kami</h5>
     <div class="row justify-content-center mb-2">
       <div class="col-sm-1 d-flex justify-content-center mb-2">
-        <a href="https://www.facebook.com/share/XVpVvArH98bm1pUp/?mibextid=qi2Omg" target="_blank"><i class="fab fa-facebook fs-2"></i></a>
+        <a href="https://www.facebook.com/share/XVpVvArH98bm1pUp/?mibextid=qi2Omg" target="_blank"><i class="bi bi-facebook fs-2"></i></a>
       </div>
       <div class="col-sm-1 d-flex justify-content-center mb-2">
-      <a href="https://www.instagram.com/hilman.zaldi?igsh=MXdtZTFubDR5cGRmeQ==" target="_blank"><i class="fab fa-instagram fs-2"></i></a>
+      <a href="https://www.instagram.com/hilman.zaldi?igsh=MXdtZTFubDR5cGRmeQ==" target="_blank"><i class="bi bi-instagram fs-2"></i></a>
       </div>
       <div class="col-sm-1 d-flex justify-content-center mb-2">
-      <a href="https://github.com/Themon645" target="_blank"><i class="fab fa-github fs-2"></i></a>
+      <a href="https://github.com/Themon645" target="_blank"><i class="bi bi-github fs-2"></i></a>
       </div>
       <div class="col-sm-1 d-flex justify-content-center mb-2">
-      <a href="https://youtube.com/@hilmanzaldi?si=RU3vV26oaH_vjGU_" target="_blank"><i class="fab fa-youtube fs-2"></i></a>
+      <a href="https://youtube.com/@hilmanzaldi?si=RU3vV26oaH_vjGU_" target="_blank"><i class="bi bi-youtube fs-2"></i></a>
       </div>
     </div>
   </div>
