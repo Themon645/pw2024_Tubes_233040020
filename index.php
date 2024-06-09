@@ -31,7 +31,7 @@ $queryProduk = mysqli_query($con, "SELECT id, nama, harga, foto, detail  FROM pr
       <div class="col-md-8 offset-md-2">
         <form action="produk.php" method="get">
           <div class="input-group input-group-lg my-4">
-            <input type="text" class="form-control" id="keyword2" placeholder="Nama Produk" aria-label="Recipient's username" aria-describedby="basic-addon2" name="keyword">
+            <input type="text" class="form-control" placeholder="Nama Produk" aria-label="Recipient's username" aria-describedby="basic-addon2" name="keyword">
             <button type="submit" class="btn warna2 text-white" id="tombol-cari" type="button">Cari</button>
           </div>
         </form>
@@ -83,8 +83,7 @@ $queryProduk = mysqli_query($con, "SELECT id, nama, harga, foto, detail  FROM pr
   <div class="container-fluid py-5">
     <div class="container text-center">
       <h3>Produk</h3>
-
-      <div class="row mt-5" id="container2">
+      <div class="row mt-5">
         <?php while ($data = mysqli_fetch_array($queryProduk)) { ?>
           <div class="col-sm-6 col-md-4 mb-3">
             <div class="card h-100">
@@ -111,7 +110,6 @@ $queryProduk = mysqli_query($con, "SELECT id, nama, harga, foto, detail  FROM pr
 
   <script src="./bootstrap/js/bootstrap.min.js"></script>
   <script src="./fontawesome/js/all.min.js"></script>
-  <script src="./js/script.js"></script>
 </body>
 
 </html>

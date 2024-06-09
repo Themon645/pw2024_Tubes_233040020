@@ -26,12 +26,12 @@ $jumlahProduk = mysqli_num_rows($queryProduk);
   }
 
   .elektronik-kategori {
-    background-color: #3498db;
+    background-color: #4D648D;
     border-radius: 15px;
   }
 
   .elektronik-produk {
-    background-color: #964B00;
+    background-color: #283655;
     border-radius: 15px;
   }
 

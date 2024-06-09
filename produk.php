@@ -38,9 +38,17 @@ $countData = mysqli_num_rows($queryProduk);
 
   <!-- banner -->
   <div class="container-fluid banner2 d-flex align-items-center">
-    <di class="container">
+    <div class="container">
       <h1 class="text-white text-center">Produk</h1>
-    </di>
+      <div class="col-md-8 offset-md-2">
+        <form action="produk.php" method="get">
+          <div class="input-group input-group-lg my-4">
+            <input type="text" class="form-control" id="keyword2" placeholder="Nama Produk" aria-label="Recipient's username" aria-describedby="basic-addon2" name="keyword">
+            <button type="submit" class="btn warna2 text-white" id="tombol-cari" type="button">Cari</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
   <!-- produk -->
@@ -58,7 +66,7 @@ $countData = mysqli_num_rows($queryProduk);
       </div>
       <div class="col-lg-9">
         <h3 class="text-center mb-3">Produk</h3>
-        <div class="row">
+        <div class="row" id="container2">
           <?php 
           if ($countData == 0) {
             ?>
@@ -95,6 +103,7 @@ $countData = mysqli_num_rows($queryProduk);
 
   <script src="./bootstrap/js/bootstrap.min.js"></script>
   <script src="./fontawesome/js/all.min.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

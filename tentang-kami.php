@@ -24,52 +24,33 @@
   <div class="container-fluid py-5">
     <div class="container fs-5 text-center">
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Repellendus commodi cumque excepturi fugit earum hic ex unde,
-        laborum soluta, repellat sit quibusdam optio sint. Velit accusantium,
-        quam provident rerum minus aliquam eum! Molestias totam eveniet,
-        numquam, pariatur dignissimos soluta aliquam dicta magni autem quasi
-        assumenda in hic obcaecati blanditiis natus odit corrupti voluptatum
-        consequatur, ipsa sapiente nulla voluptas. Facere aperiam cupiditate,
-        illo quia harum fugiat suscipit optio, laborum quisquam quaerat animi
-        inventore, quibusdam voluptate obcaecati aliquid est ipsa eveniet
-        assumenda amet? Perspiciatis, consequatur cumque nostrum asperiores aut,
-        voluptatem tempora commodi esse accusamus itaque, quibusdam quia aliquid
-        officiis nobis autem in!
+        Kami memulai toko elektronik online kami dari sebuah garasi kecil di pinggiran kota.
+        Dengan tekad dan semangat untuk menyediakan produk elektronik berkualitas,
+        kami memulai perjalanan ini dengan hanya beberapa jenis gadget dan aksesoris.
+        Awalnya, kami hanya melayani beberapa pelanggan setia yang mendengar tentang kami dari mulut ke mulut.
+        Namun, dedikasi kami untuk memberikan pelayanan terbaik dan harga yang bersaing segera menarik perhatian lebih banyak orang
       </p>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Repellendus commodi cumque excepturi fugit earum hic ex unde,
-        laborum soluta, repellat sit quibusdam optio sint. Velit accusantium,
-        quam provident rerum minus aliquam eum! Molestias totam eveniet,
-        numquam, pariatur dignissimos soluta aliquam dicta magni autem quasi
-        assumenda in hic obcaecati blanditiis natus odit corrupti voluptatum
-        consequatur, ipsa sapiente nulla voluptas. Facere aperiam cupiditate,
-        illo quia harum fugiat suscipit optio, laborum quisquam quaerat animi
-        inventore, quibusdam voluptate obcaecati aliquid est ipsa eveniet
-        assumenda amet? Perspiciatis, consequatur cumque nostrum asperiores aut,
-        voluptatem tempora commodi esse accusamus itaque, quibusdam quia aliquid
-        officiis nobis autem in!
+        Seiring berjalannya waktu, toko elektronik online kami mulai berkembang.
+        Kami memperluas katalog produk dengan menambahkan berbagai macam perangkat elektronik,
+        mulai dari smartphone terbaru hingga peralatan rumah tangga pintar.
+        Kami juga meningkatkan pengalaman belanja online dengan menyediakan deskripsi produk yang rinci,
+        ulasan dari pelanggan, dan berbagai metode pembayaran yang aman.
+        Layanan pelanggan yang responsif dan pengiriman yang cepat menjadi prioritas utama kami untuk memastikan kepuasan setiap pembeli.
       </p>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Repellendus commodi cumque excepturi fugit earum hic ex unde,
-        laborum soluta, repellat sit quibusdam optio sint. Velit accusantium,
-        quam provident rerum minus aliquam eum! Molestias totam eveniet,
-        numquam, pariatur dignissimos soluta aliquam dicta magni autem quasi
-        assumenda in hic obcaecati blanditiis natus odit corrupti voluptatum
-        consequatur, ipsa sapiente nulla voluptas. Facere aperiam cupiditate,
-        illo quia harum fugiat suscipit optio, laborum quisquam quaerat animi
-        inventore, quibusdam voluptate obcaecati aliquid est ipsa eveniet
-        assumenda amet? Perspiciatis, consequatur cumque nostrum asperiores aut,
-        voluptatem tempora commodi esse accusamus itaque, quibusdam quia aliquid
-        officiis nobis autem in!
+        Kini, toko elektronik online kami telah menjadi salah satu yang terkemuka di pasar.
+        Kami bangga dapat melayani ribuan pelanggan di seluruh negeri,
+        membantu mereka menemukan produk elektronik yang sesuai dengan kebutuhan mereka.
+        Dari perangkat kecil hingga teknologi canggih, kami terus berinovasi dan memperbaiki layanan kami
+        untuk tetap menjadi pilihan utama para konsumen. Kepercayaan dan dukungan pelanggan adalah motivasi utama kami
+        untuk terus maju dan memberikan yang terbaik.
       </p>
     </div>
   </div>
 
-      <!-- footer -->
-      <?php require "./footer.php"; ?>
+  <!-- footer -->
+  <?php require "./footer.php"; ?>
 
 
   <script src="./bootstrap/js/bootstrap.min.js"></script>
