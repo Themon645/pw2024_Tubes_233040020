@@ -2,8 +2,8 @@
 require "../adminpanel/session.php";
 require "../koneksi.php";
 
-$queryproduk = mysqli_query($con, "SELECT a.*, b.nama AS nama_kategori FROM produk a JOIN kategori b ON a.kategori_id = b.id");
-$jumlahproduk = mysqli_num_rows($queryproduk);
+$queryProduk = mysqli_query($con, "SELECT a.*, b.nama AS nama_kategori FROM produk a JOIN kategori b ON a.kategori_id = b.id");
+$jumlahProduk = mysqli_num_rows($queryProduk);
 
 $querykategori = mysqli_query($con, "SELECT * FROM kategori");
 function generateRandomString($length = 10)
@@ -16,6 +16,7 @@ function generateRandomString($length = 10)
   }
   return $randomString;
 }
+$countData = mysqli_num_rows($queryProduk);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,9 @@ function generateRandomString($length = 10)
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Produk</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="../css/style.css">
+</head>
 
 <style>
   .no-decoration {
@@ -86,8 +89,8 @@ function generateRandomString($length = 10)
         <div>
           <label for="ketersediaan_stok">Ketersediaan Stok</label>
           <select name="ketersediaan_stok" id="ketersediaan_stok" class="form-control">
-            <option value="Tersedia">Tersedia</option>
-            <option value="habis">habis</option>
+            <option value="Tersedia">TERSEDIA</option>
+            <option value="habis">HABIS</option>
           </select>
         </div>
         <div>
@@ -162,6 +165,9 @@ function generateRandomString($length = 10)
     </div>
     <div class="mt-3 mb-5">
       <h2>List Produk</h2>
+      <div class="input-group input-group-lg my-4">
+            <input type="text" class="form-control" id="keyword-produk" placeholder="Nama Produk" aria-label="Recipient's username" aria-describedby="basic-addon2" name="keyword">
+          </div>
 
       <div class="table-responsive mt-5">
         <table class="table">
@@ -175,9 +181,17 @@ function generateRandomString($length = 10)
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="container-produk">
+          <?php 
+          if ($countData == 0) {
+            ?>
+            <h4 class="text-center my-5">Produk Yang Anda Cari Tidak Tersedia</h4>
             <?php
-            if ($jumlahproduk == 0) {
+          }
+          
+          ?>
+            <?php
+            if ($jumlahProduk == 0) {
             ?>
               <tr>
                 <td colspan=6 class="text-center">Data Produk Tidak Tersedia</td>
@@ -185,7 +199,7 @@ function generateRandomString($length = 10)
               <?php
             } else {
               $jumlah = 1;
-              while ($data = mysqli_fetch_array($queryproduk)) {
+              while ($data = mysqli_fetch_array($queryProduk)) {
               ?>
                 <tr>
                   <td><?php echo $jumlah; ?></td>
@@ -210,5 +224,6 @@ function generateRandomString($length = 10)
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>      </body>
+    <script src="../js/script-adminpanel.js"></script>
 
 </html>

@@ -21,17 +21,15 @@ if (isset($_GET['keyword'])) {
                     </div>
                 </div>
             </div>
-        <?php }
-    } 
-    else {
-      echo '<p>Produk tidak ditemukan</p>';
-  }
-  
-    if (!$result) {
-      echo "Error: " . mysqli_error($con); // Tampilkan pesan kesalahan jika query gagal
-      exit;
-  }
+<?php }
+    } else {
+        echo '<p>Produk tidak ditemukan</p>';
+    }
 
+    if (!$result) {
+        echo "Error: " . mysqli_error($con); // Tampilkan pesan kesalahan jika query gagal
+        exit;
+    }
 } else {
     echo '<p>Silakan masukkan kata kunci pencarian</p>';
 }

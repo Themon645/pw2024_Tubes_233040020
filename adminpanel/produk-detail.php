@@ -91,13 +91,13 @@ function generateRandomString($length = 10)
       <select name="ketersediaan_stok" id="ketersediaan_stok" class="form-control">
         <option value="<?php echo $data['KETERSEDIAAN_STOK'] ?>"><?php echo $data['KETERSEDIAAN_STOK'] ?></option>
         <?php
-        if ($data['KETERSEDIAAN_STOK'] == "Tersedia") {
+        if ($data['KETERSEDIAAN_STOK'] != "TERSEDIA") {
         ?>
-          <option value="Tersedia">Tersedia</option>
+          <option value="Tersedia">TERSEDIA</option>
         <?php
         } else {
         ?>
-          <option value="habis">Habis</option>
+          <option value="habis">HABIS</option>
         <?php
         }
         ?>
@@ -109,66 +109,84 @@ function generateRandomString($length = 10)
     </div>
     </form>
     <?php
-    if (isset($_POST['simpan'])) {
-      $nama = htmlspecialchars($_POST['nama']);
-      $kategori = htmlspecialchars($_POST['kategori']);
-      $harga = htmlspecialchars($_POST['harga']);
-      $detail = htmlspecialchars($_POST['detail']);
-      $ketersediaan_stok = htmlspecialchars($_POST['ketersediaan_stok']);
+if (isset($_POST['simpan'])) {
+  $nama = htmlspecialchars($_POST['nama']);
+  $kategori = htmlspecialchars($_POST['kategori']);
+  $harga = htmlspecialchars($_POST['harga']);
+  $detail = htmlspecialchars($_POST['detail']);
+  $ketersediaan_stok = htmlspecialchars($_POST['ketersediaan_stok']);
 
-      $target_dir = "../img/";
-      $nama_file = basename(($_FILES["foto"]["name"]));
-      $target_file = $target_dir . $nama_file;
-      $imagefiletype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-      $image_size = $_FILES["foto"]["size"];
-      $random_name = generateRandomString(10);
-      $new_name = $random_name . '.' . $imagefiletype;
+  $target_dir = "../img/";
+  $nama_file = basename(($_FILES["foto"]["name"]));
+  $target_file = $target_dir . $nama_file;
+  $imagefiletype = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+  $image_size = $_FILES["foto"]["size"];
+  $random_name = generateRandomString(10);
+  $new_name = $random_name . '.' . $imagefiletype;
 
-      if (empty($nama) || empty($kategori) || empty($harga)) {
-    ?>
-        <div class="alert alert-danger" role="alert">
-          Semua data harus diisi
+  if (empty($nama) && empty($kategori) && empty($harga) && empty($detail) && empty($ketersediaan_stok) && empty($nama_file)) {
+?>
+    <div class="alert alert-danger" role="alert">
+      Semua data harus diisi
+    </div>
+<?php
+  } else {
+    $updateFields = [];
+
+    if (!empty($kategori)) {
+      $updateFields[] = "kategori_id = '$kategori'";
+    }
+    if (!empty($nama)) {
+      $updateFields[] = "nama = '$nama'";
+    }
+    if (!empty($harga)) {
+      $updateFields[] = "harga = '$harga'";
+    }
+    if (!empty($detail)) {
+      $updateFields[] = "detail = '$detail'";
+    }
+    if (!empty($ketersediaan_stok)) {
+      $updateFields[] = "ketersediaan_stok = '$ketersediaan_stok'";
+    }
+
+    if (!empty($nama_file)) {
+      if ($image_size > 5000000) {
+?>
+        <div class="alert alert-warning" role="alert">
+          file terlalu besar
         </div>
-        <?php
+<?php
+      } elseif ($imagefiletype != 'jpg' && $imagefiletype != 'png' && $imagefiletype != 'gif') {
+?>
+        <div class="alert alert-warning" role="alert">
+          file wajib bertype jpg, png, gif
+        </div>
+<?php
       } else {
-        $queryUpdate = mysqli_query($con, "UPDATE produk SET kategori_id = '$kategori', 
-        nama = '$nama', harga = '$harga', detail = '$detail', ketersediaan_stok = $ketersediaan_stok WHERE id = '$id'");
-
-        if ($nama_file != '') {
-          if ($image_size > 5000000) {
-        ?>
-            <div class="alert alert-warning" role="alert">
-              file terlalu besar
-            </div>
-            <?php
-          } else {
-            if ($imagefiletype != 'jpg' && $imagefiletype != 'png' && $imagefiletype != 'gif') {
-            ?>
-              <div class="alert alert-warning" role="alert">
-                file wajib bertype jpg, png, gif
-              </div>
-              <?php
-            } else {
-              move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $new_name);
-
-              $queryUpdate = mysqli_query($con, "UPDATE produk SET foto = '$new_name' WHERE id = '$id'");
-
-              if ($queryUpdate) {
-              ?>
-                <div class="alert alert-success" role="alert">
-                  Data Berhasil Ditambahkan
-                </div>
-
-                <meta http-equiv="refresh" content="2;url=http:produk.php">
-        <?php
-              } else {
-                echo mysqli_error($con);
-              }
-            }
-          }
-        }
+        move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $new_name);
+        $updateFields[] = "foto = '$new_name'";
       }
     }
+
+    if (!empty($updateFields)) {
+      $updateQuery = "UPDATE produk SET " . implode(', ', $updateFields) . " WHERE id = '$id'";
+      $queryUpdate = mysqli_query($con, $updateQuery);
+
+      if ($queryUpdate) {
+?>
+        <div class="alert alert-success" role="alert">
+          Data Berhasil Ditambahkan
+        </div>
+
+        <meta http-equiv="refresh" content="2;url=produk.php">
+<?php
+      } else {
+        echo mysqli_error($con);
+      }
+    }
+  }
+}
+
 
     if (isset($_POST['hapus'])) {
       $queryDelete = mysqli_query($con, "DELETE FROM produk WHERE id = '$id'");
@@ -189,6 +207,7 @@ function generateRandomString($length = 10)
   </div>
   </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script></body>
+  </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </html>
